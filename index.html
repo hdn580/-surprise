@@ -373,39 +373,7 @@ z-index:20;
 
 
 
-/* 爱心 */
 
-
-.heart{
-
-position:absolute;
-
-font-size:30px;
-
-animation:heart 3s linear;
-
-}
-
-
-@keyframes heart{
-
-from{
-
-bottom:40%;
-
-opacity:1;
-
-}
-
-to{
-
-bottom:100%;
-
-opacity:0;
-
-}
-
-}
 
 
 </style>
@@ -465,7 +433,7 @@ opacity:0;
 
 <div class="message" id="msg">
 
-点击蛋糕开启祝福 ✨
+请点一下蛋糕 ✨
 
 </div>
 
@@ -540,26 +508,6 @@ document.getElementById("msg")
 `;
 
 
-
-// 爱心雨
-
-for(let i=0;i<30;i++){
-
-
-let h=document.createElement("div");
-
-h.className="heart";
-
-h.innerHTML="❤️";
-
-
-h.style.left=Math.random()*100+"%";
-
-h.style.animationDelay=
-Math.random()*2+"s";
-
-
-document.body.appendChild(h);
 
 
 }
