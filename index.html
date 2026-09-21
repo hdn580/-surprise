@@ -7,7 +7,12 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>生日惊喜 🎂</title>
+<title>Birthday Card</title>
+
+
+<!-- 艺术字体 -->
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
 
 
 <style>
@@ -26,25 +31,24 @@ height:100vh;
 
 overflow:hidden;
 
+background:
+
+linear-gradient(
+
+135deg,
+
+#ffd6e8,
+
+#fff1c9
+
+);
+
+
 display:flex;
 
 justify-content:center;
 
 align-items:center;
-
-
-background:
-
-linear-gradient(
-
-180deg,
-
-#8ed6ff,
-
-#ffd6e7
-
-);
-
 
 font-family:"Microsoft YaHei";
 
@@ -52,51 +56,30 @@ font-family:"Microsoft YaHei";
 
 
 
-/******** 标题 ********/
+/* 背景星光 */
 
-
-.title{
+.star{
 
 position:absolute;
 
-top:45px;
+width:5px;
 
-width:100%;
+height:5px;
 
-text-align:center;
+background:white;
 
+border-radius:50%;
 
-font-family:"STKaiti","KaiTi";
-
-font-size:50px;
-
-font-weight:bold;
-
-
-color:white;
-
-
-text-shadow:
-
-0 5px #ff7aa2,
-
-0 0 25px white;
-
-
-animation:titleMove 3s infinite;
-
-
-z-index:10;
+animation:twinkle 2s infinite;
 
 }
 
 
-
-@keyframes titleMove{
+@keyframes twinkle{
 
 50%{
 
-transform:translateY(-10px);
+opacity:.2;
 
 }
 
@@ -104,118 +87,153 @@ transform:translateY(-10px);
 
 
 
-/******** 输入框 ********/
+/* 贺卡 */
+
+.card{
 
 
-#inputBox{
+width:360px;
 
-position:absolute;
-
-top:45%;
-
-display:flex;
-
-flex-direction:column;
-
-gap:20px;
-
-align-items:center;
-
-z-index:50;
-
-}
+height:620px;
 
 
-input{
+background:
 
-width:230px;
-
-padding:15px;
-
-border:none;
-
-border-radius:30px;
-
-font-size:18px;
-
-text-align:center;
-
-outline:none;
-
-}
+rgba(255,255,255,.92);
 
 
+border-radius:35px;
 
-button{
-
-padding:15px 35px;
-
-border:none;
-
-border-radius:30px;
-
-background:#ff6b9a;
-
-color:white;
-
-font-size:20px;
 
 box-shadow:
 
-0 5px 15px #cc6688;
+0 20px 50px rgba(0,0,0,.2);
 
-cursor:pointer;
+
+position:relative;
+
+
+text-align:center;
+
+
+padding-top:30px;
+
+
+overflow:hidden;
+
 
 }
 
 
 
-/******** 蛋糕 ********/
+
+
+/* 主标题 */
+
+.title{
+
+
+font-family:"Great Vibes";
+
+font-size:65px;
+
+color:#ff7096;
+
+
+line-height:1;
+
+
+}
+
+
+
+.sub{
+
+
+font-family:"Pacifico";
+
+font-size:28px;
+
+color:#f7b267;
+
+margin-top:5px;
+
+}
+
+
+
+
+.small{
+
+font-family:"ZCOOL KuaiLe";
+
+color:#ff9fbc;
+
+font-size:18px;
+
+margin-top:10px;
+
+}
+
+
+
+/* 蛋糕区域 */
 
 
 .cake{
 
-position:relative;
 
-width:300px;
+position:absolute;
 
-height:300px;
+top:230px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+
+width:240px;
+
+height:220px;
 
 cursor:pointer;
+
 
 }
 
 
 
-/******** 盘子 ********/
+
+/* 蛋糕盘 */
 
 
 .plate{
 
 position:absolute;
 
-bottom:20px;
+bottom:10px;
 
-left:20px;
+left:0;
 
-width:260px;
+width:240px;
 
-height:45px;
+height:35px;
 
 background:white;
 
 border-radius:50%;
 
+
 box-shadow:
 
-0 8px 15px #999;
+0 5px 10px #ccc;
+
 
 }
 
 
 
-
-/******** 蛋糕层 ********/
+/* 蛋糕层 */
 
 
 .layer{
@@ -224,26 +242,23 @@ position:absolute;
 
 border-radius:25px;
 
-left:40px;
+left:20px;
 
 }
 
 
-
 .bottom{
 
-bottom:55px;
 
-width:220px;
-
-height:80px;
-
-background:#ff9fc0;
+bottom:40px;
 
 
-box-shadow:
+width:200px;
 
-inset 0 -15px #ff6f9d;
+height:70px;
+
+
+background:#ff9ec4;
 
 
 }
@@ -252,47 +267,56 @@ inset 0 -15px #ff6f9d;
 
 .middle{
 
-bottom:125px;
 
-left:60px;
+bottom:100px;
 
-width:180px;
+left:35px;
 
-height:65px;
 
-background:#ffd1e2;
+width:170px;
+
+height:55px;
+
+
+background:#ffd1e5;
+
 
 }
-
 
 
 
 .top{
 
-bottom:180px;
 
-left:80px;
+bottom:145px;
 
-width:140px;
 
-height:55px;
+left:55px;
+
+
+width:130px;
+
+
+height:45px;
+
 
 background:white;
+
 
 }
 
 
 
-/******** 奶油 ********/
+/* 奶油 */
 
 
 .cream{
 
 position:absolute;
 
-width:30px;
+width:28px;
 
-height:30px;
+height:28px;
 
 background:white;
 
@@ -303,37 +327,38 @@ border-radius:50%;
 
 .c1{
 
-bottom:220px;
+left:65px;
 
-left:90px;
+bottom:165px;
 
 }
 
 
 .c2{
 
-bottom:220px;
+left:105px;
 
-left:140px;
+bottom:170px;
 
 }
 
 
 .c3{
 
-bottom:220px;
+left:145px;
 
-left:190px;
+bottom:165px;
 
 }
 
 
 
 
-/******** 草莓 ********/
+
+/* 草莓 */
 
 
-.strawberry{
+.berry{
 
 position:absolute;
 
@@ -341,51 +366,54 @@ width:30px;
 
 height:35px;
 
-background:#ff365d;
+background:#ff477e;
 
-border-radius:50% 50% 40% 40%;
+border-radius:50%;
 
-top:-15px;
+top:55px;
+
+
+}
+
+
+.b1{
+
+left:85px;
+
+}
+
+
+.b2{
+
+left:130px;
 
 }
 
 
 
-.s1{
 
-left:95px;
-
-}
-
-
-.s2{
-
-left:170px;
-
-}
-
-
-
-
-
-/******** 蜡烛 ********/
+/* 蜡烛 */
 
 
 .candle{
 
 position:absolute;
 
-top:75px;
 
-left:143px;
+left:115px;
 
-width:15px;
 
-height:55px;
+top:35px;
 
-background:white;
 
-border-radius:5px;
+width:12px;
+
+
+height:45px;
+
+
+background:#fff;
+
 
 }
 
@@ -393,25 +421,27 @@ border-radius:5px;
 
 .fire{
 
+
 position:absolute;
 
-top:-30px;
+width:25px;
 
-left:-7px;
-
-width:30px;
-
-height:40px;
+height:35px;
 
 background:#ffd166;
 
 border-radius:50%;
 
 
-animation:fire .4s infinite alternate;
+top:-25px;
+
+left:-7px;
+
+
+animation:fire .5s infinite alternate;
+
 
 }
-
 
 
 @keyframes fire{
@@ -427,42 +457,73 @@ transform:scale(1.3);
 
 
 
-/******** 祝福 ********/
+
+/* 祝福区域 */
 
 
-.message{
+.words{
+
 
 position:absolute;
 
-bottom:50px;
+
+bottom:90px;
+
 
 width:100%;
 
-text-align:center;
+
+padding:0 30px;
 
 
-font-size:24px;
-
-font-weight:bold;
-
-color:white;
+font-family:"ZCOOL KuaiLe";
 
 
-text-shadow:
-
-0 0 15px #ff4f91;
+font-size:22px;
 
 
-z-index:20;
+color:#ff7096;
+
+
+line-height:1.8;
+
 
 }
 
 
 
-/******** 烟花 ********/
+
+
+/* 底部提示 */
+
+
+.tip{
+
+
+position:absolute;
+
+bottom:35px;
+
+
+width:100%;
+
+
+font-size:16px;
+
+
+color:#aaa;
+
+
+}
+
+
+
+
+/* 烟花 */
 
 
 .firework{
+
 
 position:absolute;
 
@@ -472,16 +533,17 @@ height:8px;
 
 border-radius:50%;
 
+
 animation:boom 1s forwards;
 
-}
 
+}
 
 
 @keyframes boom{
 
 
-0%{
+from{
 
 transform:scale(1);
 
@@ -489,47 +551,47 @@ opacity:1;
 
 }
 
+to{
 
-100%{
-
-transform:scale(30);
+transform:scale(25);
 
 opacity:0;
 
 }
 
+
 }
 
 
 
 
-/******** 爱心 ********/
+/* 爱心 */
 
 
 .heart{
 
 position:absolute;
 
-font-size:30px;
+font-size:25px;
 
-animation:heartMove 4s linear forwards;
+animation:heart 3s linear forwards;
 
 }
 
 
-@keyframes heartMove{
+@keyframes heart{
 
 
-0%{
+from{
 
-bottom:0;
+bottom:20%;
 
 opacity:1;
 
 }
 
 
-100%{
+to{
 
 bottom:100%;
 
@@ -537,7 +599,9 @@ opacity:0;
 
 }
 
+
 }
+
 
 
 </style>
@@ -551,37 +615,35 @@ opacity:0;
 
 
 
-<div class="title" id="title">
 
-🎂 Happy Birthday 🎂
+<div class="card">
+
+
+
+<div class="title">
+
+Happy
+
+</div>
+
+
+<div class="sub">
+
+Birthday
+
+</div>
+
+
+<div class="small">
+
+✨ Make A Wish ✨
 
 </div>
 
 
 
-<div id="inputBox">
 
-
-<input
-
-id="name"
-
-placeholder="请输入你的名字">
-
-
-<button onclick="startBirthday()">
-
-开启惊喜 🎁
-
-</button>
-
-
-</div>
-
-
-
-
-<div class="cake" onclick="startBirthday()">
+<div class="cake" onclick="surprise()">
 
 
 
@@ -590,11 +652,10 @@ placeholder="请输入你的名字">
 
 <div class="layer bottom"></div>
 
-
 <div class="layer middle"></div>
 
-
 <div class="layer top"></div>
+
 
 
 <div class="cream c1"></div>
@@ -604,15 +665,13 @@ placeholder="请输入你的名字">
 <div class="cream c3"></div>
 
 
+<div class="berry b1"></div>
 
-<div class="strawberry s1"></div>
-
-<div class="strawberry s2"></div>
+<div class="berry b2"></div>
 
 
 
 <div class="candle">
-
 
 <div class="fire"></div>
 
@@ -625,9 +684,33 @@ placeholder="请输入你的名字">
 
 
 
-<div class="message" id="msg">
 
-请输入你的名字 ✨
+<div class="words" id="words">
+
+
+愿你：
+
+✨ 心中有光<br>
+
+✨ 所遇皆甜<br>
+
+✨ 岁岁欢喜<br>
+
+✨ 平安顺遂
+
+
+</div>
+
+
+
+
+<div class="tip">
+
+点击蛋糕开启惊喜 🎂
+
+</div>
+
+
 
 </div>
 
@@ -638,109 +721,116 @@ placeholder="请输入你的名字">
 
 
 
-let opened=false;
+// 星星
+
+for(let i=0;i<60;i++){
+
+let s=document.createElement("div");
+
+s.className="star";
+
+s.style.left=Math.random()*100+"%";
+
+s.style.top=Math.random()*100+"%";
 
 
+document.body.appendChild(s);
 
-function startBirthday(){
-
-
-
-if(opened)return;
-
-
-opened=true;
-
-
-
-let name=document.getElementById("name").value;
-
-
-if(name==""){
-
-name="杨蓉";
 
 }
 
 
 
 
-//隐藏输入框
 
-document.getElementById("inputBox")
-.style.display="none";
+// 烟花
 
 
+function firework(){
 
 
-//标题
+let f=document.createElement("div");
 
-document.getElementById("title")
-.innerHTML=
-
-"🎂 "+name+" 生日快乐 🎂";
+f.className="firework";
 
 
+f.style.left=Math.random()*100+"%";
+
+f.style.top=Math.random()*70+"%";
 
 
-//熄灭蜡烛
+f.style.background=
+
+[
+"#ff7096",
+"#ffd166",
+"#4cc9f0",
+"#80ed99"
+
+][Math.floor(Math.random()*4)];
+
+
+document.body.appendChild(f);
+
+
+setTimeout(()=>f.remove(),1000);
+
+
+}
+
+
+
+setInterval(firework,800);
+
+
+
+
+
+// 点击蛋糕
+
+
+function surprise(){
+
+
 
 document.querySelector(".fire")
 .style.display="none";
 
 
 
-
-//祝福
-
-document.getElementById("msg")
+document.getElementById("words")
 .innerHTML=
 
 `
-💖 ${小朋友} 💖<br>
-愿你每天开心<br>
-愿所有美好如期而至 ✨
+
+
+💖 生日快乐 💖<br>
+
+小朋友<br>
+
+平安喜乐<br>
+
+生活顺利 ✨
+
+
 `;
 
 
 
 
-//大量烟花
-
-
-for(let i=0;i<100;i++){
-
-setTimeout(()=>{
-
-createFirework();
-
-},i*30);
-
-
-}
-
-
-
-//爱心
-
-for(let i=0;i<60;i++){
+for(let i=0;i<50;i++){
 
 
 let h=document.createElement("div");
 
+
 h.className="heart";
+
 
 h.innerHTML="❤️";
 
 
-h.style.left=
-
-Math.random()*100+"%";
-
-
-h.style.animationDelay=
-
-Math.random()*3+"s";
+h.style.left=Math.random()*100+"%";
 
 
 document.body.appendChild(h);
@@ -750,69 +840,6 @@ document.body.appendChild(h);
 
 
 }
-
-
-
-
-
-function createFirework(){
-
-
-let f=document.createElement("div");
-
-
-f.className="firework";
-
-
-f.style.left=
-
-Math.random()*100+"%";
-
-
-f.style.top=
-
-Math.random()*70+"%";
-
-
-
-let colors=[
-
-"#ff4d6d",
-
-"#ffd166",
-
-"#4cc9f0",
-
-"#80ed99",
-
-"#ffffff"
-
-];
-
-
-
-f.style.background=
-
-colors[Math.floor(Math.random()*colors.length)];
-
-
-
-document.body.appendChild(f);
-
-
-
-setTimeout(()=>{
-
-f.remove();
-
-},1000);
-
-
-}
-
-
-
-setInterval(createFirework,1200);
 
 
 
