@@ -1,44 +1,412 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Birthday Surprise</title>
+<title>生日快乐</title>
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+height:100vh;
 overflow:hidden;
-background:#02020b;
-font-family:sans-serif;
+
+background:
+linear-gradient(
+180deg,
+#8ed6ff,
+#ffd6e7
+);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-family:"Comic Sans MS","Microsoft YaHei";
+
 }
 
-#text{
+
+/* 艺术标题 */
+
+.title{
+
 position:absolute;
-top:10%;
+
+top:50px;
+
 width:100%;
+
 text-align:center;
-color:white;
-font-size:38px;
+
+font-size:55px;
+
 font-weight:bold;
-text-shadow:0 0 20px #ffcc66;
-z-index:5;
+
+font-family:"STKaiti","KaiTi";
+
+color:#fff;
+
+letter-spacing:5px;
+
+text-shadow:
+
+0 5px 0 #ff8fab,
+0 0 20px #fff;
+
+animation:titleFloat 3s infinite;
+
+z-index:10;
+
 }
 
-#tip{
+
+@keyframes titleFloat{
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+
+
+/* 蛋糕 */
+
+.cake{
+
+position:relative;
+
+width:280px;
+
+height:280px;
+
+cursor:pointer;
+
+}
+
+
+
+/* 盘子 */
+
+.plate{
+
 position:absolute;
-bottom:10%;
-width:100%;
-text-align:center;
-color:white;
-font-size:20px;
-z-index:5;
+
+bottom:20px;
+
+left:10px;
+
+width:260px;
+
+height:40px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+0 10px 20px #999;
+
 }
 
-canvas{
-display:block;
+
+
+/* 蛋糕层 */
+
+
+.layer{
+
+position:absolute;
+
+left:35px;
+
+border-radius:25px;
+
 }
+
+
+.bottom{
+
+bottom:50px;
+
+width:210px;
+
+height:80px;
+
+background:#ffb6c9;
+
+box-shadow:
+inset 0 -15px #ff8fab;
+
+}
+
+
+
+.middle{
+
+bottom:120px;
+
+left:55px;
+
+width:170px;
+
+height:60px;
+
+background:#ffe0ec;
+
+}
+
+
+
+.top{
+
+bottom:170px;
+
+left:75px;
+
+width:130px;
+
+height:50px;
+
+background:#fff;
+
+}
+
+
+
+/* 奶油 */
+
+.cream{
+
+position:absolute;
+
+width:25px;
+
+height:25px;
+
+background:white;
+
+border-radius:50%;
+
+}
+
+
+
+.c1{
+left:80px;
+bottom:210px;
+}
+
+.c2{
+left:130px;
+bottom:215px;
+}
+
+.c3{
+left:180px;
+bottom:210px;
+}
+
+
+
+/* 草莓 */
+
+.strawberry{
+
+position:absolute;
+
+width:25px;
+
+height:30px;
+
+background:#ff476f;
+
+border-radius:50%;
+
+top:-15px;
+
+}
+
+
+.s1{
+left:90px;
+}
+
+.s2{
+left:150px;
+}
+
+
+
+/* 蜡烛 */
+
+.candle{
+
+position:absolute;
+
+width:14px;
+
+height:45px;
+
+background:#fff;
+
+top:80px;
+
+left:133px;
+
+border-radius:5px;
+
+}
+
+
+.fire{
+
+position:absolute;
+
+top:-25px;
+
+left:-5px;
+
+width:25px;
+
+height:35px;
+
+background:#ffd166;
+
+border-radius:50%;
+
+animation:fire .4s infinite alternate;
+
+}
+
+
+@keyframes fire{
+
+to{
+
+transform:scale(1.3);
+
+}
+
+}
+
+
+
+/* 烟花 */
+
+.firework{
+
+position:absolute;
+
+width:5px;
+
+height:5px;
+
+background:#fff;
+
+border-radius:50%;
+
+animation:boom 1s infinite;
+
+}
+
+
+@keyframes boom{
+
+
+0%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+
+100%{
+
+transform:
+
+scale(25);
+
+opacity:0;
+
+}
+
+}
+
+
+
+/* 祝福 */
+
+
+.message{
+
+position:absolute;
+
+bottom:60px;
+
+font-size:25px;
+
+color:white;
+
+text-align:center;
+
+font-weight:bold;
+
+text-shadow:
+
+0 0 10px #ff69b4;
+
+z-index:20;
+
+}
+
+
+
+/* 爱心 */
+
+
+.heart{
+
+position:absolute;
+
+font-size:30px;
+
+animation:heart 3s linear;
+
+}
+
+
+@keyframes heart{
+
+from{
+
+bottom:40%;
+
+opacity:1;
+
+}
+
+to{
+
+bottom:100%;
+
+opacity:0;
+
+}
+
+}
+
 
 </style>
 
@@ -48,336 +416,160 @@ display:block;
 <body>
 
 
-<div id="text">
+
+<div class="title">
+
 🎂 Happy Birthday 🎂
-</div>
 
-<div id="tip">
-点击蛋糕开启惊喜 ✨
 </div>
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<div class="cake" onclick="openGift()">
+
+
+
+<div class="plate"></div>
+
+
+<div class="layer bottom"></div>
+
+<div class="layer middle"></div>
+
+<div class="layer top"></div>
+
+
+
+<div class="cream c1"></div>
+<div class="cream c2"></div>
+<div class="cream c3"></div>
+
+
+
+<div class="strawberry s1"></div>
+<div class="strawberry s2"></div>
+
+
+
+<div class="candle">
+
+<div class="fire"></div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="message" id="msg">
+
+点击蛋糕开启祝福 ✨
+
+</div>
+
 
 
 <script>
 
 
-// 场景
+// 自动烟花
 
-let scene=new THREE.Scene();
-
-scene.background=new THREE.Color(0x02020b);
+function fireworks(){
 
 
+let f=document.createElement("div");
 
-let camera=new THREE.PerspectiveCamera(
-45,
-innerWidth/innerHeight,
-0.1,
-1000
-);
+f.className="firework";
 
-camera.position.z=8;
+f.style.left=Math.random()*100+"%";
+
+f.style.top=Math.random()*60+"%";
 
 
+f.style.background=
 
-let renderer=new THREE.WebGLRenderer({
-antialias:true
-});
-
-renderer.setSize(
-innerWidth,
-innerHeight
-);
-
-document.body.appendChild(renderer.domElement);
-
-
+[
+"#ff4d6d",
+"#ffd166",
+"#4cc9f0",
+"#80ed99"
+]
+[
+Math.floor(Math.random()*4)
+];
 
 
-// 灯光
-
-let light=new THREE.PointLight(
-0xffddaa,
-2,
-100
-);
-
-light.position.set(0,4,3);
-
-scene.add(light);
+document.body.appendChild(f);
 
 
+setTimeout(()=>{
 
-scene.add(
-new THREE.AmbientLight(
-0xffffff,
-0.5
-)
-);
+f.remove();
 
+},1000);
 
-
-
-// 蛋糕材质
-
-function cakeLayer(
-radius,
-height,
-y,
-color
-){
-
-let geo=new THREE.CylinderGeometry(
-radius,
-radius,
-height,
-64
-);
-
-
-let mat=new THREE.MeshStandardMaterial({
-color:color,
-roughness:.3
-});
-
-
-let mesh=new THREE.Mesh(
-geo,
-mat
-);
-
-mesh.position.y=y;
-
-scene.add(mesh);
-
-return mesh;
 
 }
 
 
+setInterval(fireworks,500);
 
-// 三层蛋糕
 
-let cake=[];
 
 
-cake.push(
-cakeLayer(
-2,
-0.6,
--1,
-0xff77aa
-)
-);
 
+// 点击互动
 
-cake.push(
-cakeLayer(
-1.6,
-0.5,
--0.35,
-0xffc1dd
-)
-);
 
+function openGift(){
 
-cake.push(
-cakeLayer(
-1.2,
-0.45,
-0.25,
-0xffffff
-)
-);
 
+document.querySelector(".fire")
+.style.display="none";
 
 
+document.getElementById("msg")
+.innerHTML=
 
-// 蜡烛
-
-let candleGeo=
-new THREE.CylinderGeometry(
-0.08,
-0.08,
-1,
-32
-);
-
-
-let candleMat=
-new THREE.MeshStandardMaterial({
-color:0xffffff
-});
-
-
-let candle=
-new THREE.Mesh(
-candleGeo,
-candleMat
-);
-
-candle.position.y=1;
-
-scene.add(candle);
-
-
-
-// 火焰
-
-let flameGeo=
-new THREE.SphereGeometry(
-0.22,
-32,
-32
-);
-
-
-let flameMat=
-new THREE.MeshBasicMaterial({
-color:0xffaa00
-});
-
-
-let flame=
-new THREE.Mesh(
-flameGeo,
-flameMat
-);
-
-
-flame.position.y=1.65;
-
-scene.add(flame);
-
-
-
-
-
-// 星星粒子
-
-let starsGeo=
-new THREE.BufferGeometry();
-
-
-let points=[];
-
-
-for(let i=0;i<800;i++){
-
-points.push(
-(Math.random()-0.5)*20,
-(Math.random()-0.5)*15,
-(Math.random()-0.5)*10
-);
-
-}
-
-
-starsGeo.setAttribute(
-'position',
-new THREE.Float32BufferAttribute(
-points,
-3
-)
-);
-
-
-
-let stars=
-new THREE.Points(
-starsGeo,
-new THREE.PointsMaterial({
-color:0xffffff,
-size:0.03
-})
-);
-
-
-scene.add(stars);
-
-
-
-
-// 动画
-
-
-function animate(){
-
-requestAnimationFrame(
-animate
-);
-
-
-// 蛋糕慢慢旋转
-
-cake.forEach(
-c=>c.rotation.y+=0.002
-);
-
-
-// 火焰跳动
-
-flame.scale.y=
-1+
-Math.sin(Date.now()*0.02)*0.3;
-
-
-stars.rotation.y+=0.0005;
-
-
-
-renderer.render(
-scene,
-camera
-);
-
-}
-
-
-animate();
-
-
-
-
-// 点击祝福
-
-
-document.body.onclick=function(){
-
-document.getElementById(
-"text"
-).innerHTML=
 `
-✨ 生日快乐 ✨<br>
+💖 生日快乐 💖<br>
 小朋友<br>
-生活顺利 一切安好 ❤️
+希望好运和快乐一直陪伴你 ✨
 `;
 
-};
 
 
+// 爱心雨
 
-// 手机适配
+for(let i=0;i<30;i++){
 
-window.onresize=function(){
 
-camera.aspect=
-innerWidth/innerHeight;
+let h=document.createElement("div");
 
-camera.updateProjectionMatrix();
+h.className="heart";
 
-renderer.setSize(
-innerWidth,
-innerHeight
-);
+h.innerHTML="❤️";
+
+
+h.style.left=Math.random()*100+"%";
+
+h.style.animationDelay=
+Math.random()*2+"s";
+
+
+document.body.appendChild(h);
+
+
+}
+
 
 }
 
 
 </script>
+
 
 
 </body>
